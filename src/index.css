@@ -1,6 +1,29 @@
 @import '/node_modules/bootstrap/dist/css/bootstrap.min.css';
 @import '/node_modules/bootstrap-icons/font/bootstrap-icons.min.css';
 
+/*We use :root pseudo-class to apply styles to the entire project 
+To call them you need to use the reserved word var(name of the variable); */
+
+:root {
+  --title: #00E4DC;
+  --specialIcons: #FF4655;
+  --graphLineColor: #FF8F45;
+  --minorText: #F1F1F1;
+  --panelBackground: #1E1D1A;
+  --panelControlParts: #362F2B;
+  --Icons: #FD3D5C;
+  --cardBackground: #002b2e;
+  --generalFont: 'Orbitron', serif, sans-serif;
+  --font_subtitle: "Fira Sans Condensed", serif;
+  --font_text: "Hind Guntur", serif;
+}
+
+body {
+  color: var(--title);
+  background-color: var(--panelBackground);
+  border-color: var(--panelBackground);
+  font-family: var(--generalFont);
+}
 a {
   font-weight: 500;
   color: #646cff;
@@ -29,3 +52,13 @@ button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
+.panel-card{
+  background-color: var(--cardBackground);
+  border-color: var(--panelBackground);
+}
+.panel{
+  background-color: var(--panelControlParts);
+}
+h1{
+  background-color: var(--cardBackground);
+}

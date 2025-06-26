@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import Planet from './components/Planets';
+import Panel from './components/Panel';
 import './App.css'
 
 function App() {
@@ -9,7 +10,7 @@ function App() {
   const [planetsLog, setPlanetsLog] = useState([]);
 
   useEffect(() => {
-    console.log("¡The planet is ready!"); 
+    console.log("The planet is visible in the distance.!"); 
 
     const interval = setInterval(() => { 
     }, 1000);
@@ -30,7 +31,7 @@ function App() {
 
   return (
     <div>
-      {/* ... (Panel information) */}
+      <Panel/>
       {planetsLog.map((planet, index) => (
         <Planet key={index} nombre={planet} />
       ))}
