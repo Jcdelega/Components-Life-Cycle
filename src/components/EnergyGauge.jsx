@@ -1,25 +1,48 @@
 import { useState, useEffect } from "react";
 
-const EnergyGauge=({percentage, status})=>{
+const EnergyGauge=({distance})=>{
 
-    const [energy, setEnergy]= useState(percentage || 0);
+    const [status, setStatus]=useState('FULL')
+    const [energy,setEnergy]=useState(100);
+    const [km, setKm]=useState(distance || 0);
+    
+    useEffect(() => {
+    console.log("Full energy !"); // Update
+    }, []);
 
     const energyHandler=()=>{
-        setEnergy(percentage);
-    }
+        setKm(distance)
+        if(km %100 === 0 && energy!=0 ){
+            setEnergy(energy - 1);
+        }else{
+            setStatus('EMPTY')
+        }
+    };
 
-    useEffect(energyHandler, [percentage]);
+    useEffect(energyHandler, [distance]); 
+    
+   /*  const stateFuel = useMemo(() => {
+            setKm(distance)
+            if(km %100 === 0 && energy!=0 ){
+                setEnergy(energy - 1);
+            }else{
+                setStatus('EMPTY')
+            }
+            return energy;
+        }, [distance]); */
 
     return(
-        <div className="panel-card w-50 m-1 rounded border border-black">
-            <h3 className="text-center">{status}</h3>
+        <div className="panel-card w-50 m-1 rounded-4 border border-black shadow">
+            <h3 className={`text-center text-success`}> <strong>{status}</strong> </h3>
             <figure>
-                <img src="null" alt="gas machine" />
-                <figcaption>
-                    <i className="bi bi-fuel-pump"></i>
+                <img className="img-fluid m-4 rounded" src="public\gas-station-fuel-svgrepo-com (1).svg" alt="gas machine" />
+                <figcaption className="m-1">
+                    <em>Check twice the energy before sailaway</em>
                 </figcaption>
             </figure>
-            <p className="text-center">{energy}%</p>
+            <p className="text-center">
+                <i className="bi bi-fuel-pump"> {energy} %</i>
+            </p>
         </div>
     );
 }

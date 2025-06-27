@@ -2,24 +2,45 @@ import DistanceGauge from "./DistanceGauge";
 import EnergyGauge from "./EnergyGauge";
 import PlanetCounter from "./PlanetCounter";
 import StatuScreen from "./StatusScreen";
+import { useState, useEffect, useMemo } from "react";
 
+const Panel = ()=>{
 
-const spaceShipConsole = ()=>{
+    const [distance, setDistance] = useState(0);
+    const [rocketState, setRocketState] = useState("orbiting...");
+
+    console.log("The planet is visible in the distance.!"); 
+
+    useEffect(() => {
+        const interval = setInterval(() => { 
+            setDistance(distance + 1);
+        }, 100);
+
+        return () => {
+            clearInterval(interval); 
+            console.log("The planet has vanished."); 
+        };
+    }, []);
+
+    const stateMessage = useMemo(() => {
+        return `State: ${rocketState}`;
+    }, [rocketState]);
+
     return(
-        <div className="panel row border border-black m-4 rounded-3">
-            <div className="d-flex justify-content-center">
-                <h1 className="text-center text-break my-2 py-2 w-75 border border-black rounded-4">SPACE JOURNEY PANEL</h1>
-            </div>
-            <div className="d-flex justify-content-evenly" >
-                <DistanceGauge distance={1526}/>
-                <EnergyGauge/>
-            </div>
-            <div className="d-flex">
-                <StatuScreen status={'OK'}/>
+        <main className="panel row border border-black m-4 rounded-3">
+            <section className="d-flex justify-content-center">
+                <h1 className="shadow text-center text-break my-2 py-2 py-sm-5 w-75 border border-black rounded-4">SPACE JOURNEY PANEL</h1>
+            </section>
+            <section className="d-flex justify-content-evenly" >
+                <DistanceGauge distance={distance}/>
+                <EnergyGauge distance={distance}/>
+            </section>
+            <section className="d-flex">
+                <StatuScreen status={rocketState}/>
                <PlanetCounter planetCounter={0} planetName={'Titan'}/>
-            </div>
-        </div>
+            </section>
+        </main>
     );
 }
 
-export default spaceShipConsole;
+export default Panel;

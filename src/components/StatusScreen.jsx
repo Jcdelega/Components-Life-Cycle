@@ -11,12 +11,11 @@ const StatuScreen=({status})=>{
     useEffect(statusHandler,[status])
 
     return(
-        <div className="w-50 m-1 panel-card rounded border border-black">
-           {/*  <img src="" alt="spaceship in bad conditions" />
-            <img src="" alt="spaceship in good conditions" /> */}
+        <div className="w-50 m-1 panel-card rounded-4 border border-black shadow">
+            <img className="img-fluid rounded my-2" src="public\spaceship-svgrepo-com.svg" alt=""/>
             <i className="bi bi-rocket-takeoff"></i>
             <h3 className="text-center">STATUS</h3>
-            <p className="text-center" >{stat}</p>
+            <p className="text-center text-success" >{stat}</p>
         </div>
     );
 }
