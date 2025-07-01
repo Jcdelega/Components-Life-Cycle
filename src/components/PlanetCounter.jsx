@@ -8,7 +8,7 @@ const PlanetCounter=({planetCounter, planetName})=>{
 
     const randomNumber = (min, max) => {
     return Math.floor(Math.random() * (max - min + 1)) + min;
-  };
+    };
 
     const iconHandler=()=>{
         const number = randomNumber(0, planetsIcons.length -1)
