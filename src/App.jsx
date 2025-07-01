@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo } from 'react';
+import React, { useState } from 'react';
 import Planet from './components/Planets';
 import Panel from './components/Panel';
 import './App.css'

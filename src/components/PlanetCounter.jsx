@@ -29,7 +29,7 @@ const PlanetCounter=({planetCounter, planetName})=>{
                 </figcaption>
             </figure>
             
-            <h3 className="text-center">VISITED PLANETS</h3>
+            <h3 className="fs-6 text text-center">VISITED PLANETS</h3>
             <p className="text-bold text-center fs-1">{counter}</p>
         </div>
     );

@@ -15,7 +15,7 @@ const DistanceGauge=({distance})=>{
                 <img className="img-fluid rounded p-3" src="public\line-graph-chart-svgrepo-com.svg" />
                 <figcaption className="m-1">What coudl be wrong?</figcaption>
             </figure>
-            <h3 className="text-center">DISTANCE</h3>
+            <h3 className="fs-6 text text-center">DISTANCE</h3>
             <p className="text-center">
             <i className="bi bi-graph-up-arrow m-4"> {km} KM</i>
             </p>
