@@ -45,7 +45,7 @@ const Panel = ()=>{
                 <EnergyGauge gauge={percentage}/>
             </section>
             <section className="d-flex">
-                <StatuScreen status={rocketState}/>
+                <StatuScreen status={stateMessage}/>
                <PlanetCounter planetCounter={0} planetName={'Titan'}/>
             </section>
         </main>
